@@ -1,0 +1,77 @@
+<html lang="pt-br">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" href="/images/logo-icon.png" />
+    <link
+      rel="stylesheet"
+      href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+      integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY="
+      crossorigin=""
+    />
+
+    <script
+      src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
+      integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo="
+      crossorigin=""
+    ></script>
+
+    <link rel="stylesheet" href="/css/main.css" />
+    <link rel="stylesheet" href="/css/animations.css" />
+    <link rel="stylesheet" href="/css/page-orphanages.css" />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200..1000;1,200..1000&display=swap"
+      rel="stylesheet"
+    />
+    <title>Localize um orfanato | Happy</title>
+  </head>
+  <body>
+    <div id="page-orphanages">
+      <aside class="animate-right">
+        <header>
+          <img src="/images/map-marker.svg" alt="Happy" />
+
+          <h2>Escolha um orfanato no mapa</h2>
+
+          <p>Muitas crianças estão esperando a sua visita :)</p>
+        </header>
+
+        <footer>
+          <strong>Rio do Sul</strong>
+          <p>Santa Catarina</p>
+        </footer>
+      </aside>
+
+      <div id="map" class="animate-appear"></div>
+
+      <div class="orphanages-list">
+        {{#each orphanages}}
+          <span
+            hidden
+            data-id="{{this.id}}"
+            data-name="{{this.name}}"
+            data-about=""
+            data-whatsapp=""
+            data-open-on-weekends=""
+            data-lat="{{this.lat}}"
+            data-lng="{{this.lng}}"
+          ></span>
+        {{/each}}
+      </div>
+
+      <a
+        href="/create-orphanage"
+        class="create-orphanage"
+        title="Cadastre um orfanato"
+      >
+        <img src="/images/plus.svg" alt="Criar orfanato" />
+      </a>
+    </div>
+
+    <script src="/scripts/page-orphanages.js"></script>
+
+  </body>
+</html>
